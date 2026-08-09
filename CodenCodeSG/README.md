@@ -40,3 +40,5 @@ Drop the whole folder onto any static host (Vercel, Netlify, GitHub Pages, S3+Cl
 
 ## Language strategy
 Teaching languages are English, 中文 (Mandarin), Bahasa Melayu **and Tamil** (per user decision — all 4 SG official languages get a hero rotator entry; Tamil beyond the hero rotator is still WhatsApp-supported rather than a full teaching track, matching the FAQ copy). Adjust `js/main.js` → `rotatorPhrases` and the FAQ language answer if this should change.
+
+
