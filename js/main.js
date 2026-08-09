@@ -1,157 +1,104 @@
-// codencode.sg — shared interactivity (no framework, no build step)
-(function () {
-  "use strict";
+// codencode.sg — shared interactivity, mirrored from codencode.my's site behavior.
 
-  /* ---------- Theme toggle ---------- */
-  var root = document.documentElement;
-  var saved = localStorage.getItem("ccsg-theme");
-  if (saved) root.setAttribute("data-theme", saved);
-
-  function currentTheme() {
-    var attr = root.getAttribute("data-theme");
-    if (attr) return attr;
-    return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-  }
-
-  document.addEventListener("click", function (e) {
-    var btn = e.target.closest("[data-theme-toggle]");
-    if (!btn) return;
-    var next = currentTheme() === "dark" ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    localStorage.setItem("ccsg-theme", next);
-  });
-
-  /* ---------- Mobile nav ---------- */
-  document.addEventListener("click", function (e) {
-    var btn = e.target.closest("[data-hamburger]");
-    if (!btn) return;
-    var menu = document.querySelector("[data-mobile-menu]");
-    if (menu) menu.classList.toggle("open");
-  });
-
-  /* ---------- FAQ accordion ---------- */
-  document.addEventListener("click", function (e) {
-    var q = e.target.closest(".faq-q");
-    if (!q) return;
-    var item = q.closest(".faq-item");
-    var wasOpen = item.classList.contains("open");
-    item.parentElement.querySelectorAll(".faq-item.open").forEach(function (el) {
-      if (el !== item) el.classList.remove("open");
-    });
-    item.classList.toggle("open", !wasOpen);
-    q.setAttribute("aria-expanded", String(!wasOpen));
-  });
-  // keyboard support (Enter/Space handled natively by <button>)
-
-  /* ---------- Hero language rotator ---------- */
-  var rotatorPhrases = [
-    { lang: "EN", text: "Stop Googling. Start Building." },
-    { lang: "中文", text: "别再搜索了，开始动手做吧。" },
-    { lang: "BM", text: "Berhenti Google. Mula Bina." },
-    { lang: "TA", text: "தேடுவதை நிறுத்துங்கள். உருவாக்கத் தொடங்குங்கள்." }
-  ];
-  var rotatorEl = document.querySelector("[data-lang-rotator]");
-  if (rotatorEl) {
-    var idx = 0;
-    setInterval(function () {
-      idx = (idx + 1) % rotatorPhrases.length;
-      rotatorEl.style.opacity = 0;
-      setTimeout(function () {
-        rotatorEl.textContent = rotatorPhrases[idx].text;
-        rotatorEl.setAttribute("lang", rotatorPhrases[idx].lang === "中文" ? "zh" : rotatorPhrases[idx].lang === "TA" ? "ta" : rotatorPhrases[idx].lang === "BM" ? "ms" : "en");
-        rotatorEl.style.opacity = 1;
-      }, 260);
-    }, 3200);
-  }
-
-  /* ---------- Announcement bar rotator ---------- */
-  var announceMsgs = [
-    "🔥 Aug 2026 cohort — 6 seats left. <a href=\"__WA_ANNOUNCE__\" target=\"_blank\" rel=\"noopener\">Chat on WhatsApp →</a>",
-    "🎓 SkillsFuture Credit accepted — offset your course fee. <a href=\"__WA_ANNOUNCE__\" target=\"_blank\" rel=\"noopener\">Ask us how →</a>",
-    "🧪 Free trial class this week — no obligation. <a href=\"__WA_ANNOUNCE__\" target=\"_blank\" rel=\"noopener\">Book your seat →</a>"
-  ];
-  var announceEl = document.querySelector("[data-announce-text]");
-  if (announceEl) {
-    var aIdx = 0;
-    var waHref = announceEl.getAttribute("data-wa") || "#";
-    function renderAnnounce() {
-      announceEl.innerHTML = announceMsgs[aIdx].replace(/__WA_ANNOUNCE__/g, waHref);
-    }
-    renderAnnounce();
-    setInterval(function () {
-      aIdx = (aIdx + 1) % announceMsgs.length;
-      renderAnnounce();
-    }, 4500);
-  }
-
-  /* ---------- Terminal typing animation ---------- */
-  var termEl = document.querySelector("[data-terminal-body]");
-  if (termEl) {
-    var full = termEl.innerHTML;
-    // Strip to plain text-with-tags typing: reveal by characters, tags kept intact via a simple approach —
-    // we type the raw HTML but chunk on tag boundaries so markup isn't broken mid-tag.
-    var tokens = full.match(/<[^>]+>|[^<]/g) || [];
-    termEl.innerHTML = "";
-    var i = 0;
-    function typeNext() {
-      if (i >= tokens.length) {
-        var cursor = document.createElement("span");
-        cursor.className = "cursor";
-        termEl.appendChild(cursor);
-        return;
-      }
-      var tok = tokens[i];
-      if (tok.charAt(0) === "<") {
-        termEl.insertAdjacentHTML("beforeend", tok);
-      } else {
-        termEl.insertAdjacentHTML("beforeend", tok);
-      }
-      i++;
-      var delay = tok === "\n" ? 40 : 14;
-      setTimeout(typeNext, delay);
-    }
-    // small delay before starting so hero settles first
-    setTimeout(typeNext, 400);
-  }
-
-  /* ---------- Language demo rotators inside "Why codencode" cards ---------- */
-  var demoRows = document.querySelectorAll("[data-demo-rotate]");
-  demoRows.forEach(function (group) {
-    var rows = group.querySelectorAll(".demo-row");
-    var active = 0;
-    rows.forEach(function (r, ri) { r.style.opacity = ri === 0 ? 1 : 0.35; });
-    setInterval(function () {
-      rows[active].style.opacity = 0.35;
-      active = (active + 1) % rows.length;
-      rows[active].style.opacity = 1;
-    }, 1800);
-  });
-
-  /* ---------- /paths.html filter tabs ---------- */
-  var tabs = document.querySelectorAll("[data-filter-tab]");
-  if (tabs.length) {
-    tabs.forEach(function (tab) {
-      tab.addEventListener("click", function () {
-        tabs.forEach(function (t) { t.classList.remove("active"); });
-        tab.classList.add("active");
-        var target = tab.getAttribute("data-filter-tab");
-        document.querySelectorAll("[data-path-section]").forEach(function (sec) {
-          var match = target === "all" || sec.getAttribute("data-path-section") === target;
-          sec.classList.toggle("visible", match);
-        });
-        history.replaceState(null, "", target === "all" ? location.pathname : "#" + target);
-      });
-    });
-    var hash = location.hash.replace("#", "");
-    if (hash) {
-      var match = document.querySelector('[data-filter-tab="' + hash + '"]');
-      if (match) match.click();
-    }
-  }
-
-  /* ---------- footer year ---------- */
-  var yEl = document.querySelector("[data-year]");
-  if (yEl) yEl.textContent = new Date().getFullYear();
+// Course slider drag scroll
+(function(){
+  const sl=document.getElementById('courseSlider');
+  if(!sl)return;
+  let down=false,startX,scrollL;
+  sl.addEventListener('mousedown',e=>{down=true;startX=e.pageX-sl.offsetLeft;scrollL=sl.scrollLeft;sl.style.userSelect='none'});
+  document.addEventListener('mouseup',()=>{down=false;sl.style.userSelect=''});
+  sl.addEventListener('mouseleave',()=>down=false);
+  sl.addEventListener('mousemove',e=>{if(!down)return;e.preventDefault();const x=e.pageX-sl.offsetLeft;sl.scrollLeft=scrollL-(x-startX)*1.5});
 })();
 
+// Mobile nav
+var mobBtn=document.getElementById('mob-btn');
+var mobMenu=document.getElementById('mob-menu');
+if(mobBtn && mobMenu){
+  mobBtn.addEventListener('click',()=>{
+    mobMenu.classList.toggle('open');
+    mobBtn.querySelector('i').className=mobMenu.classList.contains('open')?'fas fa-times':'fas fa-bars';
+  });
+  document.querySelectorAll('.mob-nav a').forEach(a=>a.addEventListener('click',()=>{
+    mobMenu.classList.remove('open');
+    mobBtn.querySelector('i').className='fas fa-bars';
+  }));
+}
 
+// Smooth in-page anchor scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  var href = a.getAttribute('href');
+  if (href === '#') return;
+  const t=document.querySelector(href);
+  if(t){e.preventDefault();window.scrollTo({top:t.offsetTop-68,behavior:'smooth'});}
+}));
+
+// Nav border brightens on scroll
+var navbar = document.getElementById('navbar') || document.querySelector('.topnav');
+if (navbar) {
+  window.addEventListener('scroll',()=>{
+    navbar.style.borderBottomColor=window.scrollY>50?'var(--bs)':'var(--b)';
+  });
+}
+
+// THEME TOGGLE
+(function(){
+  const root=document.documentElement;
+  const themeBtn=document.getElementById('theme-btn');
+  const mobThemeBtn=document.getElementById('mob-theme-btn');
+  const mobThemeLabel=document.getElementById('mob-theme-label');
+  function applyTheme(theme){
+    root.setAttribute('data-theme',theme);
+    const icon=theme==='light'?'fa-moon':'fa-sun';
+    if(themeBtn) themeBtn.innerHTML='<i class="fas '+icon+'"></i>';
+    if(mobThemeBtn) mobThemeBtn.querySelector('i').className='fas '+icon;
+    if(mobThemeLabel) mobThemeLabel.textContent=theme==='light'?'Dark Mode':'Light Mode';
+  }
+  const saved=localStorage.getItem('ccsg-theme');
+  const preferred=saved||'dark';
+  applyTheme(preferred);
+  function toggleTheme(){
+    const next=root.getAttribute('data-theme')==='light'?'dark':'light';
+    localStorage.setItem('ccsg-theme',next);
+    applyTheme(next);
+  }
+  if(themeBtn) themeBtn.addEventListener('click',toggleTheme);
+  if(mobThemeBtn) mobThemeBtn.addEventListener('click',toggleTheme);
+})();
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.onclick=function(){
+    const a=this.nextElementSibling,open=a.classList.contains('open');
+    document.querySelectorAll('.faq-a').forEach(el=>el.classList.remove('open'));
+    document.querySelectorAll('.faq-q').forEach(el=>el.classList.remove('open'));
+    if(!open){a.classList.add('open');this.classList.add('open');}
+  };
+});
+
+// /paths.html — track filter tabs
+function filterTrack(track, btn) {
+  document.querySelectorAll('.tab').forEach(t => {
+    t.classList.remove('active');
+    t.style.background = '';
+    t.style.borderColor = '';
+    t.style.color = '';
+  });
+  btn.classList.add('active');
+
+  const colors = {
+    all: 'var(--c1)', analyst: 'var(--c1)', scientist: 'var(--c2)',
+    ml: 'var(--c3)', dev: 'var(--c4)', auto: 'var(--c5)', cyber: 'var(--c6)'
+  };
+  btn.style.background = colors[track] || 'var(--c1)';
+  btn.style.borderColor = colors[track] || 'var(--c1)';
+  btn.style.color = '#080c10';
+
+  document.querySelectorAll('.roadmap').forEach(r => {
+    if (track === 'all') {
+      r.style.display = '';
+    } else {
+      r.style.display = r.dataset.track === track ? '' : 'none';
+    }
+  });
+}
