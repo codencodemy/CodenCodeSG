@@ -28,7 +28,7 @@ Drop the whole folder onto any static host (Vercel, Netlify, GitHub Pages, S3+Cl
 1. **WhatsApp Business number** — currently `+65 8000 0000` / `wa.me/6580000000` everywhere. Find-and-replace `6580000000` site-wide.
 2. **Legal entity name + UEN** — footer on all 3 pages.
 3. **Workshop venue address** — Workshops section, "AI Workshop Singapore" card, and workshop meta chips.
-4. **Trainer names, photos & bios** — currently generic role-based placeholders with initials avatars ("PY" / "VC"), no fabricated names.
+4. **Trainer photos** — names/bios (Tan Rou Ka, Aisyah Najwa) and initials avatars ("TRK" / "AN") are reused from codencode.my at the user's request; confirm both trainers actually teach codencode.sg cohorts and add real photos.
 5. **Social handles** — Facebook/LinkedIn links in the footer and contact section.
 6. **Google Business Profile review link** — contact section "Read Our Google Reviews" button.
 7. **SkillsFuture/SSG/WSQ funding eligibility for codencode.sg's own courses** — flagged as "being confirmed" everywhere it's mentioned; do not claim funding eligibility until verified with SSG.
