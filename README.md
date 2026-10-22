@@ -6,14 +6,24 @@ Static HTML/CSS/JS site for codencode.sg (Singapore coding & AI academy) — no 
 
 ## Structure
 ```
-index.html      Home
-paths.html      Career Paths (6 roadmaps, client-side filter tabs)
-compare.html    Compare vs other SG providers
-css/style.css   Design system (dark "grid-line terminal" theme + light toggle)
-js/main.js      Theme toggle, FAQ accordion, mobile nav, course-slider drag, path filters
-robots.txt
-sitemap.xml
+index.html                              Home
+python-course-singapore/index.html      Python course landing page
+cybersecurity-course-singapore/index.html  Cybersecurity course landing page
+ai-course-singapore/index.html          Vibe Coding, Machine Learning & AI workshops
+paths.html                              Career Paths (6 roadmaps, client-side filter tabs)
+compare.html                            Compare vs other SG providers
+404.html                                Not-found page (noindex)
+css/style.css  js/main.js               Design system + interactivity
+logo/                                   codencode.sg pixel wordmark (dark/light, 1x/2x/xl) + favicons
+assets/og-cover.png                     1200x630 social share image
+llms.txt  robots.txt  sitemap.xml  manifest.webmanifest
 ```
+
+## SEO / AEO / GEO
+- Every page: unique title + description, canonical, hreflang en-SG, geo meta (SG), Open Graph + Twitter cards, favicons, JSON-LD `@graph` (EducationalOrganization, WebSite, WebPage, BreadcrumbList, Course, FAQPage).
+- Visible FAQ text matches the FAQPage JSON-LD on each page.
+- `llms.txt` summarises the academy for AI answer engines; `robots.txt` explicitly allows search and AI crawlers.
+- Update `lastmod` in `sitemap.xml` and "Last updated" dates when content changes.
 
 ## Run locally
 ```bash
@@ -24,16 +34,15 @@ or open `index.html` directly in a browser — all paths are relative, no server
 ## Deploy
 Drop the whole folder onto any static host (Vercel, Netlify, GitHub Pages, S3+CloudFront). No build command needed.
 
-## ⚠️ Unresolved placeholders (search for `TODO` / `TODO(confirm)` in the HTML)
-1. ~~WhatsApp Business number~~ — done: `+65 8321 6288` (`wa.me/6583216288`).
-2. **Legal entity name + UEN** — footer on all 3 pages.
-3. **Workshop venue address** — Workshops section, "AI Workshop Singapore" card, and workshop meta chips.
-4. **Trainer photos** — names/bios (Tan Rou Ka, Aisyah Najwa) and initials avatars ("TRK" / "AN") are reused from codencode.my at the user's request; confirm both trainers actually teach codencode.sg cohorts and add real photos.
-5. **Social handles** — Facebook/LinkedIn links in the footer and contact section.
-6. **Google Business Profile review link** — contact section "Read Our Google Reviews" button.
-7. **SkillsFuture/SSG/WSQ funding eligibility for codencode.sg's own courses** — flagged as "being confirmed" everywhere it's mentioned; do not claim funding eligibility until verified with SSG.
-8. **Hero "50+ Students" stat** — marked with `*`; this is a placeholder number, not a verified claim.
-9. **OG share image** (`/assets/og-cover.jpg`) referenced in meta tags is not present — add a real image or update the path.
+## ⚠️ Still needed (placeholders were removed from public pages, add these when confirmed)
+1. ~~WhatsApp Business number~~ — done: `+65 8321 6288`.
+2. **Legal entity name + UEN** — add to footers and to the Organization JSON-LD (`legalName`, `taxID`).
+3. **Workshop venue address** — pages say "venue details via WhatsApp"; add a `Place`/`PostalAddress` to JSON-LD once known.
+4. **Trainers** — names/bios reused from codencode.my; confirm they teach codencode.sg cohorts.
+5. **Social profiles + Google Business Profile** — add URLs to the footer and to `sameAs` in the Organization JSON-LD.
+6. **Email** — `hello@codencode.sg` is shown in the footer; confirm the mailbox exists.
+7. **SkillsFuture/SSG/WSQ funding** — still worded as "being confirmed".
+8. **Student count / reviews** — no numbers are claimed until verified.
 
 ## Sourced data (already verified, not placeholders)
 - `/compare.html` competitor facts (General Assembly Singapore, Le Wagon Singapore, NUS-ISS SCTP, NTUC LearningHub, Heicoders Academy) — sourced via web search 9 Aug 2026; re-verify periodically, date noted on the page itself.

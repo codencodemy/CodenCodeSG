@@ -367,3 +367,39 @@ td .tag{display:inline-block;font-family:var(--mono);font-size:9.5px;color:var(-
   .cert-row{grid-template-columns:1fr}
 }
 
+
+
+/* ---- logo (image wordmark, dark/light swap) ---- */
+.logo-img{height:26px;width:auto;display:block}
+.logo-img-light{display:none}
+html[data-theme="light"] .logo-img-dark{display:none}
+html[data-theme="light"] .logo-img-light{display:block}
+.fab .logo-img{height:30px}
+
+/* ---- a11y + SEO helpers ---- */
+.skip-link{position:absolute;left:-9999px;top:8px;z-index:999;background:var(--cyan);color:#080c10;padding:10px 16px;font-family:var(--mono);font-size:12px;text-decoration:none;font-weight:700}
+.skip-link:focus{left:8px}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.clink{display:inline-block;font-family:var(--mono);font-size:11px;color:var(--cyan);text-decoration:none;margin:0 0 12px;letter-spacing:.04em}
+.clink:hover{text-decoration:underline}
+.crumbs{font-family:var(--mono);font-size:11px;color:var(--mu);margin-bottom:18px;letter-spacing:.04em}
+.crumbs a{color:var(--mu);text-decoration:none}
+.crumbs a:hover{color:var(--cyan)}
+.crumbs [aria-current]{color:var(--w)}
+.answer{border-left:2px solid var(--cyan);background:var(--cglow);padding:18px 22px;font-size:15px;line-height:1.7;max-width:760px;margin:0 0 28px}
+.lp-sec{margin-top:56px}
+.lp-sec h2{font-size:clamp(22px,3.2vw,32px);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin-bottom:14px}
+.lp-sec p,.lp-sec li{font-size:15px;line-height:1.75;color:var(--mu);max-width:760px}
+.lp-sec ul{margin:10px 0 0 20px}
+.lp-sec li{margin-bottom:6px}
+.lp-sec li strong,.lp-sec p strong{color:var(--w)}
+.kv-table{min-width:0}
+.kv-table th{width:32%;text-align:left;white-space:nowrap}
+.rel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border:1px solid var(--b);margin-top:20px}
+.rel-grid a{padding:22px 24px;border-right:1px solid var(--b);border-bottom:1px solid var(--b);text-decoration:none;color:var(--w);font-weight:700;font-size:15px;display:block}
+.rel-grid a span{display:block;font-family:var(--mono);font-weight:400;font-size:11px;color:var(--mu);margin-top:6px;line-height:1.6}
+.rel-grid a:hover{background:var(--cglow);color:var(--cyan)}
+.lp-cta{margin-top:56px}
+.lp-sec a:not(.btn-wa):not(.btn-p),.kv-table a,.answer a{color:var(--cyan)}
+.rel-grid a{color:var(--w)!important}
+.rel-grid a:hover{color:var(--cyan)!important}
