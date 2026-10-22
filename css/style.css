@@ -403,3 +403,22 @@ html[data-theme="light"] .logo-img-light{display:block}
 .lp-sec a:not(.btn-wa):not(.btn-p),.kv-table a,.answer a{color:var(--cyan)}
 .rel-grid a{color:var(--w)!important}
 .rel-grid a:hover{color:var(--cyan)!important}
+
+/* ---- trainer cards (mirrors codencode.my) ---- */
+.trainer-card{border:1px solid var(--b);background:var(--bg);overflow:hidden;display:grid;grid-template-columns:220px 1fr;min-height:320px;transition:border-color .25s,transform .2s}
+.trainer-card:hover{border-color:var(--bs);transform:translateY(-3px)}
+.trainer-photo{position:relative;min-height:320px;background:linear-gradient(135deg,#081016,#0b1118)}
+.trainer-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(8%)}
+.trainer-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 48%,var(--photo-ov2) 100%)}
+.trainer-photo.is-missing{display:grid;place-items:center;background:radial-gradient(circle at 35% 25%,rgba(0,220,180,.18),transparent 34%),linear-gradient(135deg,#081016,#0b1118 55%,#080c10)}
+.trainer-photo.is-missing img{display:none}
+.trainer-photo.is-missing::before{content:attr(data-initials);position:relative;z-index:2;width:124px;height:124px;border:1px solid var(--bs);display:grid;place-items:center;background:var(--avatar-bg);color:var(--cyan);font-size:34px;font-weight:800;letter-spacing:-.04em;box-shadow:0 0 32px rgba(0,220,180,.14)}
+.ticks{list-style:none}
+.ticks li{font-family:var(--mono);font-size:12px;color:var(--mu);line-height:1.7;padding-left:18px;position:relative;margin-bottom:6px}
+.ticks li::before{content:'\203A';position:absolute;left:0;color:var(--cyan);font-weight:700}
+.trainer-body .ticks{margin-bottom:18px;flex:1}
+.soc-pill.ig{color:#E1306C;border-color:rgba(225,48,108,.35);background:rgba(225,48,108,.06)}
+.soc-pill.ig:hover{background:rgba(225,48,108,.15);border-color:#E1306C}
+.soc-pill.tt{color:var(--w);border-color:var(--bs);background:var(--cglow)}
+.soc-pill.tt:hover{border-color:var(--cyan)}
+.social-row{flex-wrap:wrap}

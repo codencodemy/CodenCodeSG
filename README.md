@@ -38,10 +38,10 @@ Drop the whole folder onto any static host (Vercel, Netlify, GitHub Pages, S3+Cl
 1. ~~WhatsApp Business number~~ — done: `+65 8321 6288`.
 2. **Legal entity name + UEN** — add to footers and to the Organization JSON-LD (`legalName`, `taxID`).
 3. **Workshop venue address** — pages say "venue details via WhatsApp"; add a `Place`/`PostalAddress` to JSON-LD once known.
-4. **Trainers** — names/bios reused from codencode.my; confirm they teach codencode.sg cohorts.
-5. **Social profiles + Google Business Profile** — add URLs to the footer and to `sameAs` in the Organization JSON-LD.
-6. **Email** — `hello@codencode.sg` is shown in the footer; confirm the mailbox exists.
-7. **SkillsFuture/SSG/WSQ funding** — still worded as "being confirmed".
+4. ~~Trainers~~ — done: same team as codencode.my (Sasha Khoo, Lee Zi Qian, Nurin Aisyah Najwa, Darren Teoh).
+5. ~~Social profiles + Google Business Profile~~ — done: shared with codencode.my.
+6. ~~Email~~ — done: codencodemy@gmail.com.
+7. ~~SkillsFuture~~ — removed from codencode.sg's own copy (competitor funding facts on compare.html are kept).
 8. **Student count / reviews** — no numbers are claimed until verified.
 
 ## Sourced data (already verified, not placeholders)
