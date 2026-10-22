@@ -30,7 +30,6 @@ Last updated: 2026-10-22
 - One-off, fixed-format sessions in Singapore — not enrolled multi-week courses.
 
 ## Trainers
-- Sasha Khoo — Lead Trainer & Managing Director
 - Lee Zi Qian — Python & Machine Learning Trainer
 - Nurin Aisyah Najwa — AI & Coding Trainer
 - Darren Teoh — Data Science Trainer
