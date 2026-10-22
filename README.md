@@ -25,7 +25,7 @@ or open `index.html` directly in a browser — all paths are relative, no server
 Drop the whole folder onto any static host (Vercel, Netlify, GitHub Pages, S3+CloudFront). No build command needed.
 
 ## ⚠️ Unresolved placeholders (search for `TODO` / `TODO(confirm)` in the HTML)
-1. **WhatsApp Business number** — currently `+65 8000 0000` / `wa.me/6580000000` everywhere. Find-and-replace `6580000000` site-wide.
+1. ~~WhatsApp Business number~~ — done: `+65 8321 6288` (`wa.me/6583216288`).
 2. **Legal entity name + UEN** — footer on all 3 pages.
 3. **Workshop venue address** — Workshops section, "AI Workshop Singapore" card, and workshop meta chips.
 4. **Trainer photos** — names/bios (Tan Rou Ka, Aisyah Najwa) and initials avatars ("TRK" / "AN") are reused from codencode.my at the user's request; confirm both trainers actually teach codencode.sg cohorts and add real photos.
