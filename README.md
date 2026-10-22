@@ -34,17 +34,7 @@ or open `index.html` directly in a browser — all paths are relative, no server
 ## Deploy
 Drop the whole folder onto any static host (Vercel, Netlify, GitHub Pages, S3+CloudFront). No build command needed.
 
-## ⚠️ Still needed (placeholders were removed from public pages, add these when confirmed)
-1. ~~WhatsApp Business number~~ — done: `+65 8321 6288`.
-2. **Legal entity name + UEN** — add to footers and to the Organization JSON-LD (`legalName`, `taxID`).
-3. **Workshop venue address** — pages say "venue details via WhatsApp"; add a `Place`/`PostalAddress` to JSON-LD once known.
-4. ~~Trainers~~ — done: same team as codencode.my (Lee Zi Qian, Nurin Aisyah Najwa, Darren Teoh).
-5. ~~Social profiles + Google Business Profile~~ — done: shared with codencode.my.
-6. ~~Email~~ — done: codencodemy@gmail.com.
-7. ~~SkillsFuture~~ — removed from codencode.sg's own copy (competitor funding facts on compare.html are kept).
-8. **Student count / reviews** — no numbers are claimed until verified.
-
-## Sourced data (already verified, not placeholders)
+## Sourced data
 - `/compare.html` competitor facts (General Assembly Singapore, Le Wagon Singapore, NUS-ISS SCTP, NTUC LearningHub, Heicoders Academy) — sourced via web search 9 Aug 2026; re-verify periodically, date noted on the page itself.
 - `/paths.html` salary bands — sourced from MOM Occupational Wages Survey, Glassdoor SG, PayScale SG and SkillUp SG salary guides, 2026.
 
