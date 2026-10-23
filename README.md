@@ -6,18 +6,20 @@ Static HTML/CSS/JS site for codencode.sg (Singapore coding & AI academy) — no 
 
 ## Structure
 ```
-index.html                              Home
-python-course-singapore/index.html      Python course landing page
-cybersecurity-course-singapore/index.html  Cybersecurity course landing page
-ai-course-singapore/index.html          Vibe Coding, Machine Learning & AI workshops
-paths.html                              Career Paths (6 roadmaps, client-side filter tabs)
-compare.html                            Compare vs other SG providers
-404.html                                Not-found page (noindex)
-css/style.css  js/main.js               Design system + interactivity
-logo/                                   codencode.sg pixel wordmark (dark/light, 1x/2x/xl) + favicons
-assets/og-cover.png                     1200x630 social share image
-llms.txt  robots.txt  sitemap.xml  manifest.webmanifest
+index.html                                Home — Learn AI. Build AI. Lead with AI. (6-level pathway + corporate)
+ai-curriculum/index.html                  AI curriculum overview (CC-AI01 to CC-AI06, assessment model)
+ai-curriculum/cc-ai0X-*/index.html        One page per level (Explorer, Creator, Developer, Builder, Engineer, Leader)
+corporate-ai-training/index.html          6 corporate AI programmes, delivery formats, session structure
+paths.html  compare.html                  Career roadmaps; comparison with other SG providers
+python-course-singapore/  ai-course-singapore/  cybersecurity-course-singapore/
+                                          Redirects from the old course pages (kept so indexed links keep working)
+404.html                                  Not-found page (noindex)
+css/style.css  js/main.js                 Design system + interactivity
+logo/  assets/                            Wordmarks, favicons, OG image, trainer photos
+llms.txt  robots.txt  sitemap.xml  manifest.webmanifest  BingSiteAuth.xml
 ```
+
+Content source: *CodenCode AI Academy Curriculum Blueprint* (6-level framework + corporate AI programmes).
 
 ## SEO / AEO / GEO
 - Every page: unique title + description, canonical, hreflang en-SG, geo meta (SG), Open Graph + Twitter cards, favicons, JSON-LD `@graph` (EducationalOrganization, WebSite, WebPage, BreadcrumbList, Course, FAQPage).
