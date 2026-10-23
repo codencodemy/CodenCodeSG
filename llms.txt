@@ -1,6 +1,6 @@
 # codencode.sg
 
-> codencode.sg is a Singapore AI academy. Learn AI. Build AI. Lead with AI. It offers a 6-level, project-based AI learning pathway (CC-AI01 AI Explorer to CC-AI06 AI Leader) and corporate AI programmes for teams. Classes are live and taught in English, Mandarin (中文) and Bahasa Melayu, with Tamil-speaking support. First class is free.
+> codencode.sg is Singapore's first AI academy. Learn AI. Build AI. Lead with AI. It offers a 6-level, project-based AI learning pathway (CC-AI01 AI Explorer to CC-AI06 AI Leader) and corporate AI programmes for teams. Classes are live and taught in English, Mandarin (中文) and Bahasa Melayu, with Tamil-speaking support. First class is free.
 
 Last updated: 2026-10-23
 
