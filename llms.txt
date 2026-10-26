@@ -27,6 +27,7 @@ Last updated: 2026-10-23
 - Corporate AI training (6 programmes, formats, session structure): https://codencode.sg/corporate-ai-training/
 - Singapore tech career roadmaps: https://codencode.sg/paths.html
 - Comparison of Singapore coding/AI academies: https://codencode.sg/compare.html
+- Sister site in Malaysia (Johor Bahru; corporate AI training, kids & adult classes): https://codencode.my/
 
 ## 6-level AI pathway
 Progression: Use AI → Code AI → Build AI → Deploy AI → Lead AI Projects. Each level combines guided instruction, practical labs, assessment and a portfolio-ready capstone.
